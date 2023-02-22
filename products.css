@@ -1,0 +1,14 @@
+#Sanketh_products-container{
+    width:100%;
+    border:2px solid red;
+    background-color: rgb(240, 240, 240); 
+}
+
+#Sanketh_product-display-container{
+    width:90%;
+    height:1000px;
+    border:2px solid black;
+    background-color:white;
+    margin:auto;
+
+}
