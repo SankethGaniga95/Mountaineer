@@ -1,0 +1,20 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+
+
+.rohit_container {
+    width :35%;
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background: #FFEBEE;
+    padding: 150px 200px 160px;
+    text-align: center;
+}
