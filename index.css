@@ -17,7 +17,9 @@
 
 
 /*------------------------------NavUpperMostPortion-----*/
-
+nav{
+    margin-bottom: 20px;
+}
 #abhay_nav_uppermost {
     display: flex;
     justify-content: space-around;
@@ -128,7 +130,7 @@ left: 20px;
     margin: auto;
     align-items: center;
     justify-content: center;
-    /* padding-left: 5px; */
+  
  }
 #abhay_nav_middle > div > div >img {
     height: 100%;
@@ -144,6 +146,12 @@ i {
    color: #bfc4c1; 
    font-size: 14px;
 }
+
+/*------------------------------NavMiddlePart-----*/
+
+
+
+/*------------------------------NavBottomPart-----*/
 
 #abhay_nav_bottom{
     height: 38px;
@@ -166,5 +174,295 @@ i {
 }
 #abhay_nav_bottom > div > div:hover{
 cursor: pointer;
-    border-bottom: 2px solid black;
+transition: 0.1s;
+border-bottom: 2px solid black;
+}
+
+/*------------------------------NavBottomPart-----*/
+
+
+
+
+
+/*------------------------------UpperImages-----*/
+
+
+#abhay_upperImages {
+    width: 1000px;
+    margin: auto;
+}
+
+#abhay_upperImages > div:nth-child(1){
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    width: 100%;
+}
+#abhay_upperImages > div:nth-child(1) img{
+   width: 100%;
+}
+#abhay_upperImages > div:nth-child(1) a {
+    width: 100%;
+}
+
+
+#abhay_upperImages > div:nth-child(2){
+    
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    width: 100%;
    }
+
+#abhay_upperImages > div:nth-child(2) > a {
+    margin-top: 10px;
+   width: 49.3%;
+ }
+ #abhay_upperImages > div:nth-child(2) > a > img{
+    width: 100%;
+  }
+ #abhay_upperImages > div:nth-child(2) a:nth-child(1){
+     margin-right: 7px;
+ }
+ #abhay_upperImages > div:nth-child(2) a:nth-child(2){
+     margin-left: 7px;
+ }
+
+ #abhay_upperImages > div:nth-child(3){
+    
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    width: 100%;
+   }
+
+#abhay_upperImages > div:nth-child(3) > a {
+    margin-top: 10px;
+   width: 49.3%;
+ }
+ #abhay_upperImages > div:nth-child(3) > a > img{
+    width: 100%;
+  }
+ #abhay_upperImages > div:nth-child(3) a:nth-child(1){
+     margin-right: 7px;
+ }
+ #abhay_upperImages > div:nth-child(3) a:nth-child(2){
+     margin-left: 7px;
+ }
+
+
+ #abhay_upperImages > div:nth-child(4){
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    width: 100%;
+}
+#abhay_upperImages > div:nth-child(4) img{
+   width: 100%;
+}
+#abhay_upperImages > div:nth-child(4) a {
+    margin-top: 10px;
+    width: 100%;
+}
+
+/*--------------------------------optionSlide*/
+
+#abhay_optionSlide{
+    margin: auto;
+    display: flex;
+    width: 1000px;
+}
+#abhay_optionSlide > div{
+    margin-top: 60px;
+    width: 18%;
+}
+#abhay_optionSlide > div a{
+    width: 100%;
+}
+#abhay_optionSlide > div img{
+    width: 100%;
+}
+
+/*--------------------------------optionSlide*/
+
+
+#abhay_genderSection{
+    width: 1000px;
+    display: flex;  
+    margin: auto;
+    text-align: center;
+    justify-content: space-around;
+}
+#abhay_genderSection > div{
+width: 31%;
+
+}
+#abhay_genderSection > div img{ 
+    width: 100%;
+    
+}
+
+    /*-------------------*/
+
+#abhay_discountBanner {
+    width: 1000px;
+    margin: auto;
+    
+}
+#abhay_discountBanner img{
+    width: 100%;
+    
+}
+
+/*--------------------------abhay_middle_product_section*/
+
+#abhay_middle_product_section{
+    width: 1000px;
+    margin: auto;
+}
+
+#abhay_middle_product_section > div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+}
+#abhay_middle_product_section > div:nth-child(1) > div{
+    margin-top: 20px;
+    width: 32%;
+}
+#abhay_middle_product_section > div:nth-child(1) > div > a{
+    width: 100%;
+}
+#abhay_middle_product_section > div:nth-child(1) > div > a img{
+    width: 100%;
+}
+
+
+#abhay_middle_product_section > div:nth-child(2) > div:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+}
+#abhay_middle_product_section > div:nth-child(2) > div:nth-child(1) div{
+    width: 24%;
+}
+#abhay_middle_product_section > div:nth-child(2) > div:nth-child(1) div img{
+    width: 100%;
+}
+
+#abhay_middle_product_section > div:nth-child(2) > div:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+}
+#abhay_middle_product_section > div:nth-child(2) > div:nth-child(2) div{
+    margin-top: 10px;
+    width: 24%;
+}
+#abhay_middle_product_section > div:nth-child(2) > div:nth-child(2) div img{
+    width: 100%;
+}
+
+/**/
+
+#abhay_middle_product_section > div:nth-child(3) > div:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+}
+#abhay_middle_product_section > div:nth-child(3) > div:nth-child(1) div{
+    margin-top: 80px;
+    width: 24%;
+}
+#abhay_middle_product_section > div:nth-child(3) > div:nth-child(1) div img{
+    width: 100%;
+}
+
+#abhay_middle_product_section > div:nth-child(3) > div:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+}
+#abhay_middle_product_section > div:nth-child(3) > div:nth-child(2) div{
+    margin-top: 10px;
+    width: 24%;
+}
+#abhay_middle_product_section > div:nth-child(3) > div:nth-child(2) div img{
+    width: 100%;
+}
+
+/*--------------------------abhay_middle_product_section*/
+
+
+
+/*--------------------------abhay_bottom_product_section*/
+#abhay_bottom_product_section {
+width: 1000px;
+margin: auto;
+
+}
+
+#abhay_bottom_product_section > div:nth-child(1) {
+    width: 100%;
+    margin: auto;
+}
+#abhay_bottom_product_section > div:nth-child(1) img{
+    width: 100%;
+    margin: auto;
+}
+
+#abhay_bottom_product_section > div:nth-child(1) div{
+    margin-top: 70px;
+}
+
+/**/
+
+#abhay_bottom_product_section > div:nth-child(2) > div:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+}
+#abhay_bottom_product_section > div:nth-child(2) > div:nth-child(1) div{
+    margin-top: 80px;
+    width: 24%;
+}
+#abhay_bottom_product_section > div:nth-child(2) > div:nth-child(1) div img{
+    width: 100%;
+}
+
+#abhay_bottom_product_section > div:nth-child(2) > div:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+}
+#abhay_bottom_product_section > div:nth-child(2) > div:nth-child(2) div{
+    margin-top: 10px;
+    width: 24%;
+}
+#abhay_bottom_product_section > div:nth-child(2) > div:nth-child(2) div img{
+    width: 100%;
+}
+
+/**/
+
+#abhay_bottom_product_section > div:nth-child(3) {
+   width: 75%;
+   margin: auto;
+}
+#abhay_bottom_product_section > div:nth-child(3) > div:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+}
+#abhay_bottom_product_section > div:nth-child(3) > div:nth-child(1) div{
+    margin-top: 80px;
+    width: 18%;
+}
+#abhay_bottom_product_section > div:nth-child(3) > div:nth-child(1) div img{
+    width: 100%;
+}
+
+#abhay_bottom_product_section > div:nth-child(3) > div:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+}
+#abhay_bottom_product_section > div:nth-child(3) > div:nth-child(2) div{
+    margin-top: 10px;
+    width: 24%;
+}
+#abhay_bottom_product_section > div:nth-child(3) > div:nth-child(2) div img{
+    width: 100%;
+}
+
