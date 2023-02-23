@@ -4,7 +4,6 @@ body{
 }
 
 .Nitesh_cartdiv{
-    /* border: 2px solid red; */
     width: 80%;
     margin: auto;
     display: grid;
@@ -42,6 +41,9 @@ body{
 }
 
 #Nitesh_Cart_items img{
+    display: flex;
+    justify-content: center;
+    margin: auto;
     width: 50%;
 }
 
