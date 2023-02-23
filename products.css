@@ -1,14 +1,74 @@
 #Sanketh_products-container{
     width:100%;
-    border:2px solid red;
+   
     background-color: rgb(240, 240, 240); 
+
+    padding-top:70px;
+
 }
 
 #Sanketh_product-display-container{
-    width:90%;
-    height:1000px;
-    border:2px solid black;
+    width:85%;
+    height:2000px;
+    /* border:2px solid grey; */
     background-color:white;
     margin:auto;
+    
 
 }
+#Sanketh_product-display-container>div>h3{
+    font-size:28px;
+    padding: 20px 0px 0px 20px; ;
+    
+   
+}
+#Sanketh-product-filter{
+margin: 20px 0px 0px 20px;   
+}
+#Sanketh_product_data{
+justify-content:space-evenly;
+font-family:sans-serif;
+font-size:25px;
+border:2px solid black;
+width:100%;
+color:grey;
+}
+.card__img{
+    height:100px;
+    width:100px
+}
+hr{
+    width:4900%;
+    background-color:grey;
+    height:1px
+}
+#Sanketh-product-form{
+
+font-size: 25px;
+height:100px;
+margin-bottom:50px;
+
+}
+#Sanketh-product-form>form>input{
+ font-size: 19px;
+
+}
+#Sanketh-product-form>form>button{
+    font-size: 19px;
+    margin-left:1338px;
+   
+   }
+
+   #Sanketh-pagination-buttons{
+    width:80%;
+    height:100px;
+    border:2px solid red;
+    margin:auto;
+    margin-top:40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+   }
+

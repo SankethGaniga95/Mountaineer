@@ -36,19 +36,60 @@
       </div>
       <div id="Sanketh-order-page">
         <nav>
+          <h4>Dashboard</h4>
           <input type="text" placeholder="Search...">
+          
           <img src="./images/adminicon.png" alt="">
         </nav> 
         
         <div id="Sanketh_products-container">
-          <h1>Products Page</h1> 
+         
           <div id="Sanketh_product-display-container">
-          <p>helo</p>
+            <div>
+              <h3>Products Page</h3>
+              <select name="filter" id="Sanketh-product-filter">
+                <option value="">Filter</option>
+              </select>
+            </div>
+            <div id="Sanketh-product-form">
+              <p>Add New Products</p>
+            <form action="">
+              <input type="text" placeholder="Enter ID">
+              <input type="text" placeholder="Enter Image URL">
+              <input type="text" placeholder="Enter Name">
+              <input type="text" placeholder="Enter Category">
+              <input type="text" placeholder="Enter Description">
+              <input type="text" placeholder="Enter Price">
+              <button>Add Product</button>
+            </form>
           </div>
-        
+          <table id="Sanketh_product_data">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody id="Sanketh-product-append">
+<!-- -------------------------------------items from api appended here--------------------------------- -->
+            </tbody>
+          </table>
+          <div id="Sanketh-pagination-buttons">
+            <!-- -------------------------paginationbuttons------------------------------------------------------------ -->
+                     <h3>button1</h3>
+                      </div>
+          </div>
+         
           </div>
       </div> 
       </div>
     
 </body>
 </html>
+<script src="./Scripts/products.js"></script>
