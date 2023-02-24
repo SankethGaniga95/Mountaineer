@@ -553,12 +553,12 @@ footer > div span{
     position: relative;
     width: 94%;
     display: flex;
-    left: 40px;
-   bottom: 45px;
+    top: 340px;
+   margin-left: 35px;
 }
 #abhay_social_links > div:nth-child(1) {
     align-items: flex-start;
-    margin-right: 350px;
+    margin-right: 330px;
     margin-left: 10px;
 }
 #abhay_social_links  i {
