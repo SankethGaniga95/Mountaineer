@@ -2,8 +2,14 @@
 
 let Products_Cart=JSON.parse(localStorage.getItem("Pkey")) || [];
 
-let Shoes_Cart=JSON.parse(localStorage.getItem("Skey")) || [];
+let Quantity_item=JSON.parse(localStorage.getItem("Quantity")) || null;
 
+let Customer_History_product=JSON.parse(localStorage.getItem("CustomerHistory")) || [];
+
+
+fetchAndRenderCart();
+
+DisplayCustomerHistory(Customer_History_product);
 
 let Cart_Amount=0;
 
@@ -13,7 +19,8 @@ if(Products_Cart.length){
     for(let i of Products_Cart){
         Quantity_Object[i]=1;
     }
-    console.log(Quantity_Object)
+    Quantity_item=Quantity_Object;
+    localStorage.setItem("Quantity",JSON.stringify(Quantity_item));
 }
 
 let MainCartSection=document.getElementById("Nitesh_Cart_items");
@@ -26,9 +33,22 @@ let ProductData=[];
 
 let ShoesData=[];
 
-fetchAndRenderCart();
+
+
+let checkoutbtn=document.querySelector("#Nitesh_Order_Summary button");
+
+checkoutbtn.addEventListener("click",function(e){
+
+    e.preventDefault()
+
+    if(Products_Cart.length)
+        window.location="./Nitesh-Day-3/checkout.html"
+})
+
+
 
 function fetchAndRenderCart(){
+
 
     if(Products_Cart.length!==0){
         
@@ -39,23 +59,7 @@ function fetchAndRenderCart(){
                 })
                 .then((data)=>{
                     ProductData.push(data)
-                    RenderCartItem(ProductData,data.price)
-                })
-        
-        }
-    }
-
-
-    if(Shoes_Cart.length!==0){
-        
-        for(let id of Shoes_Cart){
-            fetch(`https://63c63ce0d307b76967351ede.mockapi.io/shoes/${id}`)
-                .then((res)=>{
-                    return res.json()
-                })
-                .then((data)=>{
-                    ShoesData.push(data)
-                    RenderCartItem(ShoesData,data.price)
+                    RenderCartItem(ProductData,+data.price)
                 })
         
         }
@@ -70,7 +74,9 @@ function RenderCartItem(data,amt){
         return getCards(item.image,item.title,item.category,item.price,item.description,item.id)
     }).join("")
 
-    MainCartSection.innerHTML=Cards;
+   
+    MainCartSection.innerHTML = Cards;
+
 
     Cart_Amount+=amt;
     SubTotal.textContent=Cart_Amount+" Rs";
@@ -87,7 +93,9 @@ function RenderCartItem(data,amt){
             console.log(e.target.value,e.target.id);
 
             Quantity_Object[e.target.id]=+e.target.value;
-            //console.log(Quantity_Object)
+            Quantity_item=Quantity_Object;
+
+            localStorage.setItem("Quantity",JSON.stringify(Quantity_item));
 
             CalculateCartPrice();
 
@@ -107,18 +115,12 @@ function RenderCartItem(data,amt){
                 
             })
 
-            Shoes_Cart=Shoes_Cart.filter((item)=>{
 
-                if(item!==e.target.id){
-                   
-                    return item;
-                }
-                
-            })
-
+            console.log(Products_Cart)
             localStorage.setItem("Pkey",JSON.stringify(Products_Cart));
-            localStorage.setItem("Skey",JSON.stringify(Shoes_Cart));
-            window.location.reload()
+            
+            fetchAndRenderCart()
+
 
         })
 
@@ -163,7 +165,7 @@ function CalculateCartPrice(){
                     
                     for(let i in Quantity_Object){
                         if(id===i){
-                            Cart_Amount+=Quantity_Object[i]*data.price;
+                            Cart_Amount+=(Quantity_Object[i])*(+data.price);
                             Total_Amount.textContent=Cart_Amount+" Rs";
                             SubTotal.textContent=Cart_Amount+" Rs";
                         }
@@ -174,3 +176,50 @@ function CalculateCartPrice(){
         }
     }
 }
+
+
+
+function DisplayCustomerHistory(data){
+
+    let NiteshCartHistory=document.querySelector(".NiteshCart_History");
+    let Historyitemcards="";
+
+   for(let id of data){
+    fetch(`https://63c63ce0d307b76967351ede.mockapi.io/product/${id}`)
+                .then((res)=>{
+                    return res.json()
+                })
+                .then((data)=>{
+
+                    Historyitemcards += `<div id="History_Items">
+
+                            <img src="${data.image}" alt="Error">
+                            <p>${data.title}</p>
+                            <p>${data.category}</p>
+                            <p>${data.price} Rs</p>
+                            <p>${data.description.substring(0,50)}</p>
+
+                        </div>`
+
+                        NiteshCartHistory.innerHTML=`${Historyitemcards}`;
+                })
+
+                
+    }
+
+}
+
+
+
+
+let HistoryItem=document.querySelector(".HistoryRemover");
+
+HistoryItem.addEventListener("click",function(e){
+    e.preventDefault()
+
+    localStorage.clear()
+    window.location.reload()
+    
+})
+
+

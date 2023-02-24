@@ -112,3 +112,36 @@ body{
 #Nitesh_Order_Summary > div > h3 > span{
     float: right;
 }
+
+.NiteshCart_History{
+ 
+    width: 80%;
+    margin: 50px auto 20px auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    padding: 10px;
+}
+
+.NiteshCart_History > div{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 10px;
+    margin: auto;
+}
+
+#History_Items > img{
+    width: 150px;
+}
+.NiteshCart_History > div > p{
+    margin-top: 0px;
+}
+
+.HistoryRemover{
+    float: right;
+    color: rgb(121, 121, 232);
+    margin: 10px 20px;
+}
+
+.HistoryRemover:hover{
+    cursor: pointer;
+}

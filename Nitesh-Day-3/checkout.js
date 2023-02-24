@@ -1,16 +1,12 @@
 let Products_Cart=JSON.parse(localStorage.getItem("Pkey")) || [];
+let Quantity_item=JSON.parse(localStorage.getItem("Quantity")) || null;
+
+let Customer_History_product=[]
+
+
 let ProductData=[];
 
 let Cart_Amount=0;
-
-let Quantity_Object={};
-
-if(Products_Cart.length){
-    for(let i of Products_Cart){
-        Quantity_Object[i]=1;
-    }
-    console.log(Quantity_Object)
-}
 
 
 
@@ -30,6 +26,7 @@ let OrderCheckoutButton=document.querySelector("#checkout_form > div:nth-child(6
 
 
 OrderCheckoutButton.addEventListener("click",function (e){
+
     e.preventDefault()
 
     let C_fname=CustomerFirstName.value;
@@ -54,9 +51,11 @@ OrderCheckoutButton.addEventListener("click",function (e){
 
         //console.log(obj)
        
-    // getPaymentoption();
+        getPaymentoption();
 
-    // PlaceNewOrder(obj);
+        DiscountPrice();
+
+        PlaceNewOrder(obj);
 
     }
 
@@ -68,7 +67,8 @@ OrderCheckoutButton.addEventListener("click",function (e){
 
 })
 
-// getPaymentoption();
+
+
 function getPaymentoption(){
 
     let paymentContainer=document.querySelector(".PaymentSection");
@@ -79,6 +79,11 @@ function getPaymentoption(){
         <option value="Cash on Delivery">Cash on Delivery</option>
         <option value="Online">Internet Banking</option>
     </select>
+    <div>
+        <p>Use <span id="Special_Code">Masai</span> as coupon code to get extra 20% off </p>
+        <input type="text" placeholder="Coupon Code" id="coupon_box">
+        <button id="discount_reward">Apply</button>
+    </div>
     <button id="Place_Order">Place Order</button>`
 }
 
@@ -93,15 +98,14 @@ function PlaceNewOrder(obj){
             alert("kindly select a valid payment option !")
         }
         else if(paymentoption.value==="Cash on Delivery"){
-            // 
-
-            alert("Order has been Placed Successfully !")
+           
+            Shooping(obj);
+            alert("Order has been Placed Successfully !");
         }
         else{
             setTimeout(function (){
-                // 
-
-                alert("Transaction Successfull ! Order has been placed Successfully !")
+                Shooping(obj);
+                alert("Transaction Successfull ! Order has been placed Successfully !");
             },5000)
         }
     })
@@ -110,6 +114,48 @@ function PlaceNewOrder(obj){
 
 function Shooping(obj){
     
+    if(Products_Cart.length!==0){
+        
+        for(let id of Products_Cart){
+            fetch(`https://63c63ce0d307b76967351ede.mockapi.io/product/${id}`)
+                .then((res)=>{
+                    return res.json()
+                })
+                .then((data)=>{
+                    
+                    obj.image=data.image;
+                    obj.title=data.title;
+                    obj.price=data.price;
+
+                    UpdateBEServer(obj);
+
+                    Customer_History_product=Products_Cart;
+                    localStorage.clear()
+                    localStorage.setItem("CustomerHistory",JSON.stringify(Customer_History_product));
+                    
+                })
+        
+        }
+    }
+
+
+}
+
+
+function UpdateBEServer(obj){
+    fetch(`https://63ca7e2e4f53a00420242ac5.mockapi.io/User`,{
+        method:'POST',
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify(obj)
+    })
+        .then((res)=>{
+            return res.json()
+        })
+        .then((data)=>{
+            window.location="/cart.html"
+        })
 }
 
 
@@ -126,7 +172,8 @@ function fetchAndRenderCart(){
                 })
                 .then((data)=>{
                     ProductData.push(data)
-                    RenderCartItem(ProductData,data.price)
+                    RenderCartItem(ProductData,data.id,data.price)
+                    
                 })
         
         }
@@ -135,7 +182,7 @@ function fetchAndRenderCart(){
 
 
 
-function RenderCartItem(data,amt){
+function RenderCartItem(data,id,amt){
 
     let Cards=data.map((item)=>{
         return getCards(item.image,item.title,item.category,item.price)
@@ -146,8 +193,14 @@ function RenderCartItem(data,amt){
 
     let Total_Amount=document.querySelector("#Customer_Cart_items  > p > span");
 
-    Cart_Amount+=amt;
-    Total_Amount.textContent=Cart_Amount+" Rs";
+    for(let i in Quantity_item){
+        if(i===id){
+            Cart_Amount+=Quantity_item[i]*amt;
+            Total_Amount.textContent=Cart_Amount+" Rs";
+        }
+    }
+
+   
 }
 
 
@@ -171,33 +224,33 @@ function getCards(image,title,cat,price){
 }
 
 
+function DiscountPrice(){
+    let count=0;
 
-function CalculateCartPrice(){
+    let discountCode=document.getElementById("coupon_box");
+
+    let discountapplybtn=document.getElementById("discount_reward");
 
 
+    discountapplybtn.addEventListener("click",function(e){
 
-    Cart_Amount=0;
-
-    if(Products_Cart.length!==0){
+        e.preventDefault()
         
-        for(let id of Products_Cart){
-            fetch(`https://63c63ce0d307b76967351ede.mockapi.io/product/${id}`)
-                .then((res)=>{
-                    return res.json()
-                })
-                .then((data)=>{
-                    
-                    for(let i in Quantity_Object){
-                        if(id===i){
-                            Cart_Amount+=Quantity_Object[i]*data.price;
-                            Total_Amount.textContent=Cart_Amount+" Rs";
-                            SubTotal.textContent=Cart_Amount+" Rs";
-                        }
-                    }
-                    
-                })
-        
+
+        if(discountCode.value==="Masai" && count==0){
+
+            let Total_Amount=document.querySelector("#Customer_Cart_items  > p > span");
+
+            let finalPrice=parseInt(Total_Amount.textContent);
+
+            finalPrice=finalPrice*0.8;
+
+            Total_Amount.textContent=finalPrice+" Rs";
+
+            count++;
+
         }
-    }
-}
 
+    })
+
+}
