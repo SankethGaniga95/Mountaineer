@@ -1,5 +1,16 @@
 let mainsection=document.getElementById("Sanketh-product-append")
-let paginationButton=document.getElementById("Sanketh-pagination-buttons")
+let paginationButton=document.getElementById("Sanketh-pagination-part")
+let updateButton=document.getElementById("Sanketh-products-update")
+let addProductsButton=document.getElementById("Sanketh-products-add")
+
+
+
+let IdInputValue=document.getElementById("Sanketh-id-value")
+let ImageInputValue=document.getElementById("Sanketh-image-value")
+let NameInputValue=document.getElementById("Sanketh-name-value")
+let CategoryInputValue=document.getElementById("Sanketh-category-value")
+let DescriptionInputValue=document.getElementById("Sanketh-Description-value")
+let PriceInputValue=document.getElementById("Sanketh-price-value")
 
 fetchandRender("1")
 function fetchandRender(pageno){
@@ -10,23 +21,85 @@ function fetchandRender(pageno){
     },
     })
     .then((res)=>{
+        if(res.ok){
+         return res.json()
+        }
         // console.log(res.headers.get("X-Total-Count"));
-        return res.json()
+        
     })
     .then((data)=>{
         console.log(data);
         mainsection.innerHTML=renderData(data)
+
+
+
+        let deleteButton=document.querySelectorAll(".Sanketh-delete-link")
+        console.log(deleteButton)
+        for(let deletelink of deleteButton){
+            deletelink.addEventListener("click",(e)=>{
+                e.preventDefault()
+                let deleteID=e.target.id
+                console.log(deleteID)
+
+                deleteItem(deleteID)
+            })
+        }
+
+
+
+
+
+        let editButton=document.querySelectorAll(".Sanketh-edit-link")
+        console.log(editButton)
+        for(let editLink of editButton){
+        editLink.addEventListener("click",(e)=>{
+        e.preventDefault();
+        console.log("click")
+        let editID=e.target.id
+        console.log(editID)
+        populateEditForms(editID)
+
+      
+       
+    })
+}
+
     })
     .catch(error=> console.log(error))
 }
 
 
+
 function renderData(data){
     let cardlist=data.map((item)=>{
-        return getcard(item.id,item.image,item.title,item.category,item.Description,item.price)
+    return getcard(item.id,item.image,item.title,item.category,item.Description,item.price)
 
     }).join("")
-    return `<div class="Sanketh-card-list">${cardlist}</div>`
+    return `<div class="Sanketh-card-list">${cardlist}</div>`;
+     
+}
+
+
+
+
+
+
+
+function populateEditForms(editID){
+    let products="product"
+    fetch(`https://63c63ce0d307b76967351ede.mockapi.io/${products}/${editID}`)
+    .then((res)=>res.json())
+    .then((data)=>{
+    //   console.log(data.title) 
+    IdInputValue.value = data.id;
+    ImageInputValue.value=data.image;
+    NameInputValue.value=data.title;
+    CategoryInputValue.value=data.category;
+    DescriptionInputValue.value=data.Description;
+    PriceInputValue.value=data.price
+
+    });
+
 }
 
 
@@ -39,8 +112,8 @@ return `<hr>
  <td>${category}</td>
  <td>${Description}</td>
  <td>${prize}</td>
- <td><button>Edit</button>
- <td><button>Delete</button>
+ <td><button class="Sanketh-edit-link" id=${id}>Edit</button>
+ <td><button class="Sanketh-delete-link" id=${id} >Delete</button>
 </tr>
 <br>`
 
@@ -48,12 +121,21 @@ return `<hr>
 
 
 
-// function deleteitem(id){
-//     fetch(`https://63c63ce0d307b76967351ede.mockapi.io/product/${id}`,{
-//     method:'DELETE',
-//     body:JSON.
-//     })
-// }
+function deleteItem(id){
+let remove=fetch(`https://63c63ce0d307b76967351ede.mockapi.io/product/${id}`,{
+    method:'DELETE',
+})
+.then(res=>{
+    return res.json()
+}).then(data =>{
+    remove=remove.filter((ele)=>{
+        return ele.id!==data.id
+    })
+    renderData("1")
+}).catch(error=>{
+
+})
+}
 
 function addbutton(){
     let btn="";
@@ -70,12 +152,86 @@ function getButton(pno,text){
 
 let buttons =document.querySelectorAll(".Sanketh-pagination-buttons")
 
+paginationData()
 function paginationData(){
     for(let btn of buttons){
         btn.addEventListener("click",function(e){
             let pagenumber=e.target.dataset.pageNumber;
+            console.log("click")
             fetchandRender(pagenumber)
         })
     }
 }
 
+updateButton.addEventListener("click",function(e){
+    console.log("click1")
+    e.preventDefault()
+    let id=IdInputValue.value;
+    let image=ImageInputValue.value;
+    let name=NameInputValue.value;
+    let category=CategoryInputValue.value;
+    let description=DescriptionInputValue.value;
+    let price=PriceInputValue.value
+    updateDetails(id,image,name,category,description,price)
+    fetchandRender("1")
+})
+
+
+function updateDetails(id,image,name,category,description,price){
+    let products="product"
+    fetch(`https://63c63ce0d307b76967351ede.mockapi.io/product/${id}`,{
+        method:'PUT',
+        body:JSON.stringify({
+            id:id,
+            image:image,
+            name:name,
+            category:category,
+            description:description,
+            price:price
+        }),
+        headers:{
+            'Content-type':'application/json'
+        }
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data)
+        fetchandRender("1")
+    })
+}
+
+
+addProductsButton.addEventListener("click",(e)=>{
+    e.preventDefault()
+    let id=IdInputValue.value;
+    let image=ImageInputValue.value;
+    let name=NameInputValue.value;
+    let category=CategoryInputValue.value;
+    let description=DescriptionInputValue.value;
+    let price=PriceInputValue.value;
+    addProducts(id,image,name,category,description,price)
+    fetchandRender("1")
+
+})
+
+function addProducts(id,image,name,category,Description,price){
+fetch(`https://63c63ce0d307b76967351ede.mockapi.io/product`,{
+    method:"POST",
+    body:JSON.stringify({
+        id:id,
+            image:image,
+            name:name,
+            category:category,
+            Description:Description,
+            price:price
+    }),
+    headers:{
+        'Content-type':'application/json'
+    }
+})
+    .then(res => res.json())
+    .then(data=>{
+        console.log(data)
+        fetchandRender("1")
+    })
+}
