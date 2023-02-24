@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css" />
+    <title>Sign Up</title>
+   
+</head>
+<body>
+    <div id="rohit_container">
+
+        <div>
+            <button>Create Account</button>
+            <button>Log In</button>
+        </div>
+        <form id="signUp">
+            <h1>Create Account</h1>
+            <input type="text">
+            <br>
+            <input type="email">
+            <br>
+            <input type="password*">
+            <br>
+            <input type="submit">
+        </form>
+        <form id="signIn">
+            <h1>Log In</h1>
+            <input type="email">
+            <br>
+            <input type="password">
+            <br>
+            <input type="submit">
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    let loginBtn = document.querySelector('div>button:nth-child(2)');
+    let signUpBtn = document.querySelector('div>button:nth-child(1)');
+    let signIn = document.querySelector('#signIn');
+    let signUp = document.querySelector('#signUp');
+
+
+    signIn.style.display = 'none';
+
+    loginBtn.addEventListener('click',function(){
+       signUp.style.display = 'none';
+       signIn.style.display = 'block';
+    document.title = 'Sign In';
+    })
+    signUpBtn.addEventListener('click',function(){
+        signIn.style.display = 'none';
+        signUp.style.display = 'block';
+        document.title = 'Sign Up';
+    })
+    signUp.addEventListener('submit',function(event){
+        event.preventDefault();
+        let username = signUp.name.value;
+        let user = signUp.email.value;
+        let password = signUp.password.value;
+        if(password != signUp.passwordChk.value){
+            alert('passwords do not match!');
+        }
+        else{
+            localStorage.setItem('user',user);
+            localStorage.setItem('username',username);
+            localStorage.setItem('password',password);
+            alert('Sign Up successful!');
+             signUp.reset();
+          
+        }
+    })
+    signIn.addEventListener('submit',function(event){
+        event.preventDefault();
+        let user = signIn.email1.value;
+        let password = signIn.password1.value;
+        
+        let storedUser = localStorage.getItem('user');
+        let storedPassword = localStorage.getItem('password');
+
+        if(user != storedUser){
+            alert('user not found/registered!');
+        }
+        else{
+            if(password!=storedPassword){
+                alert('wrong password');
+            }
+            else{
+                alert('login successful!');
+                window.location.assign('/index.html')
+            }
+        }
+    })
+</script>

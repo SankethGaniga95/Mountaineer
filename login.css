@@ -1,0 +1,41 @@
+#signIn{
+    /* background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+    width: 25%; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#signUp{
+    /* background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+    width: 30%; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#container{
+    width: 80%;
+    margin:auto;
+    /* background-image: radial-gradient(red 5%, yellow 15%, green 60%); */
+   
+}
+#container>div{
+    display: flex;
+    gap: 20px;
+    justify-content: end;
+}
+form{
+    margin: auto;
+    width: 250px;
+}
+input{
+    width: 100%;
+    text-align: center;
+    margin: 10px -2px;
+}
+#container>div:nth-child(n) button{
+    background-color: rgb(31, 209, 209);
+    color:rgb(230, 29, 223);
+    padding: 5px 10px;
+    border: 1px solid green;
+    border-radius: 4px;
+}
+#container>div:nth-child(n) button:hover{
+   background-color: midnightblue;
+   
+}
