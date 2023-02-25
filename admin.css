@@ -108,6 +108,55 @@ color:white;
 }
 #Sanketh_order-container{
     width:100%;
-    border:2px solid red;
+    /* border:2px solid red; */
     background-color: rgb(240, 240, 240);
+} 
+
+
+
+#Sanketh_order-container{
+    width:100%;
+   
+    background-color: rgb(240, 240, 240); 
+
+    padding-top:70px;
+
 }
+
+
+#Sanketh_order-display-container{
+    width:85%;
+    height:2000px;
+    /* border:2px solid grey; */
+    background-color:white;
+    margin:auto;
+    border-radius: 8px;
+    
+
+}
+#Sanketh_order-display-container>div>h3{
+    font-size:28px;
+    padding: 20px 0px 0px 20px; ;
+    
+   
+}
+
+#Sanketh_order_data{
+    justify-content:space-evenly;
+    font-family:sans-serif;
+    font-size:25px;
+    border:2px solid black;
+    width:100%;
+    color:grey;
+    }
+
+
+    .order_card__img{
+        height:100px;
+        width:100px
+    }
+    hr{
+        width:4870%;
+        background-color:grey;
+        height:1px
+    }
