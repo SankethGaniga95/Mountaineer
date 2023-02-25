@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: Montserrat-Web, Montserrat, -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Helvetica Neue, sans-serif; 
 }
 
 #Checkout_Nav{
@@ -22,7 +23,7 @@ body {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 10px;
-    margin: auto;
+    margin: 25px auto;
     width: 80%;
     
 }
@@ -177,6 +178,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-top: 2px;
     /* height:fit-content; */
 }
 
@@ -211,11 +213,14 @@ body {
 
 #Customer_Cart_items > div > div:nth-child(2) > p{
     margin: 2px;
+    
 }
 
 
 #Customer_Cart_items  > p{
     padding: 10px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 }
 
 #Customer_Cart_items  > p > span{
