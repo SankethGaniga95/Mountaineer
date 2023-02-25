@@ -30,6 +30,8 @@ let form=document.querySelector("form");
          display(filtered);
        })
 
+        // get cart data form localStorage
+       let cartdata=JSON.parse(localStorage.getItem("cart"))||[];
 
 function display(data){
     let card=document.querySelector("#product3");
@@ -46,15 +48,38 @@ function display(data){
 
         img.setAttribute("src",el.image);
         title.innerText=el.title;
-        desc.innerText=el.description;
+        desc.innerText=el.Description;
         price.innerText= "$"+el.price;
         category.innerText=el.category;
         cartadd.innerText="Add to Cart";
+
+        cartadd.addEventListener("click",()=>{
+           
+            if(CharacterData(el)){
+                alert("Product is already in Cart")
+            }else{
+                // let cartdata=JSON.parse(localStorage.getItem("cart"))||[];
+                cartdata.push(el);
+            localStorage.setItem("cart",JSON.stringify(cartdata));
+            alert(`${el.title} is added in Cart`);
+            }
+
+            
+        })
 
         div.append(img,price,title,price,category,desc,cartadd);
         card.append(div);
     })
 }
+function CharacterData(el){
+    for(i=0;i<cartdata.length;i++){
+        if(cartdata[i].id===el.id){
+            return true;
+        }
+    }return false;
+}
+
+// filtered
 
 let brand = document.querySelector('#filter1');
    
@@ -118,4 +143,27 @@ let brand = document.querySelector('#filter1');
             
            
         }
+    })
+
+    // page Background color change
+
+    let body=document.querySelector("body");
+    let nav=document.querySelector("#abhay_nav_middle > div > div:nth-child(3)");
+    let nav1=document.querySelector("#abhay_nav_middle > div > div:nth-child(4) ");
+
+    let bbtn=document.querySelector("#black");
+    let wbtn=document.querySelector("#white");
+
+    bbtn.addEventListener("click",()=>{
+        
+        body.style.backgroundColor="Black";
+        nav.style.color="Black";
+        nav1.style.color="Black";
+        body.style.color="white";
+    })
+
+    wbtn.addEventListener("click",()=>{
+        
+        body.style.backgroundColor="white";
+        body.style.color="black";
     })
