@@ -237,3 +237,44 @@ fetch(`https://63c63ce0d307b76967351ede.mockapi.io/product`,{
         fetchandRender("1")
     })
 }
+
+
+
+// -----------------------------------------debouncing search----------------------------------------------
+
+const debounce = (func, delay) => {
+    let debounceTimer;
+    return function (...args) {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => func(...args), delay);
+    };
+  };
+  
+  let input = document.getElementById("input");
+  
+  async function fetchItems(query) {
+    console.log(`fetch request made`)
+    let res = await fetch(`https://63c63ce0d307b76967351ede.mockapi.io/product?q=${query}`);
+    let data = await res.json();
+    console.log(data)
+    let searchParams=input.value;
+    let filtered=data.filter((element)=>{
+        if(element.title.toUpperCase().includes(searchParams.toUpperCase())===true){
+          return true
+        }else {
+          return false
+        }
+        
+      })
+      console.log(filtered)
+      mainsection.innerHTML=renderData(filtered)
+  }
+  
+  let betterFetchItems = debounce(fetchItems, 1000);
+  
+  input.addEventListener("keyup", function (e) {
+    betterFetchItems(e.target.value);
+   
+  });
+
+

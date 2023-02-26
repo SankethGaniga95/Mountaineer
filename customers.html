@@ -26,11 +26,11 @@
        <div class="Sanketh-orders">
         <a href="./customers.html">Customers</a>
        </div>
+       <!-- <div class="Sanketh-orders">
+        <a href="./customers.html">Analytics</a>
+       </div> -->
        <div class="Sanketh-orders">
-        <a href="./analytics.html">Analytics</a>
-       </div>
-       <div class="Sanketh-orders">
-        <a href="">Logout</a>
+        <a href="./index.html">Logout</a>
        </div>
       </div>
       </div>
@@ -38,7 +38,7 @@
         
         <nav>
           <h3>Dashboard</h3>
-          <input type="text" placeholder="Search...">
+          <input type="text" id="inputcustomer" placeholder="Search...">
           <p>Admin</p> 
           <img src="./images/adminicon.png" alt="">
         </nav>  
@@ -50,7 +50,7 @@
         <div id="Sanketh_customer-display-container">
           <div>
             <h3>Customer Details</h3>
-            <select name="filter" id="Sanketh-product-filter">
+            <select name="filter" id="Sanketh-customer-filter">
               <option value="">Filter</option>
             </select>
           </div>
@@ -71,20 +71,18 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Category</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th>Customer Name</th>
+              <th>Address</th>
+              <th>Pin Code</th>
+              <th>Phone No.</th>
+              <th>Delivered</th>
             </tr>
           </thead>
-          <tbody id="Sanketh-product-append">
+          <tbody id="Sanketh-customers-append">
 <!-- -------------------------------------items from api appended here--------------------------------- -->
           </tbody>
         </table>
-        <div id="Sanketh-pagination-part">
+        <div id="Sanketh-customers-pagination-part">
           <!-- -------------------------paginationbuttons------------------------------------------------------------ -->
                   
                     </div>
@@ -97,3 +95,4 @@
   </div>
 </body>
 </html>
+<script src="./customers.js"></script>
