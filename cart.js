@@ -4,6 +4,7 @@ let Products_Cart=JSON.parse(localStorage.getItem("Pkey")) || [];
 
 let Shoes_Cart=JSON.parse(localStorage.getItem("Skey")) || [];
 
+
 let Cart_Amount=0;
 
 let Quantity_Object={};
@@ -18,6 +19,8 @@ if(Products_Cart.length){
 let MainCartSection=document.getElementById("Nitesh_Cart_items");
 let Total_Amount=document.querySelector("#Nitesh_Order_Summary > div > h3 > span");
 let SubTotal=document.querySelector("#Nitesh_Order_Summary > div > p:nth-child(2) > span");
+
+
 
 let ProductData=[];
 
