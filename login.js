@@ -13,15 +13,9 @@ UserLoginButton.addEventListener("click",function(e){
 
     if(UserEmailAddress.value==="admin" && UserPassword.value==="admin"){
 
-        console.log("welcome admin")
-        alert("are boss aa gaye")
-
-        // move to admin page
-        // window.location="admin.html"
-    }
-
-    else if(UserEmailAddress.value && UserPassword.value){
-
+        window.location="/admin.html"
+    } else if(UserEmailAddress.value && UserPassword.value){
+let logedInPerson = []
         let obj={
             username:UserEmailAddress.value,
             password:UserPassword.value
@@ -30,7 +24,7 @@ UserLoginButton.addEventListener("click",function(e){
 
         for(let user of RegisterUserDataBase){
             if(user.useremail===obj.username && user.userpass===obj.password){
-
+                logedInPerson.push(user)
                found=1;
                break;
 
@@ -38,24 +32,19 @@ UserLoginButton.addEventListener("click",function(e){
         }
 
         if(found===1){
-            console.log("let's do shopping")
-            alert("chalo kharcha karte hai")
-
-            //login successfull
-            // move user to product page
-            // window.location="product.html"
-
+            localStorage.setItem("logedinPerson", JSON.stringify(logedInPerson))
+            window.location.href = "/product.html"
         }
 
         else{
             console.log("wrong details.")
-            alert("tu kaun hai be ? ")
+            alert("User dosen't exists, Register yourself")
         }
 
     }
     else{
         console.log("wrong details.")
-        alert("tu kaun hai be ? ")
+        alert("Please add full Details")
     }
 
 })
@@ -65,3 +54,10 @@ UserLoginButton.addEventListener("click",function(e){
 /* User and Admin login */
 
 
+
+// Code for redirect to home
+let imagelink = document.getElementById("abhay_homeLink")
+imagelink.addEventListener("click", ()=>{
+    window.location.href = "index.html"
+})
+// Code for redirect to home

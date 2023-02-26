@@ -25,12 +25,19 @@ CreateAccountButton.addEventListener("click", function (e) {
       userpass: NewUserPassword.value,
     };
 
-    if (RegisterUserDataBase.includes(obj)) {
+    let t = false;
+for(let i = 0; i < RegisterUserDataBase.length; i++) {
+  if(RegisterUserDataBase[i].useremail === obj.useremail){
+    t  = true
+    break;
+  }
+}
+    if (t === true) {
       // alert user already registered
-      alert("tu user pehle se hai ");
+      alert("Your Account Already Exists, Try to Log in");
     } else {
       RegisterUserDataBase.push(obj);
-      alert("ja bna diya user tujhe");
+      alert("Your account has been created, Please Log in now");
       console.log(RegisterUserDataBase);
 
       localStorage.setItem(
@@ -39,6 +46,14 @@ CreateAccountButton.addEventListener("click", function (e) {
       );
     }
   } else {
-    alert("Enter All The Details");
+    alert("Enter All The Details, To register");
   }
 }); /* User and Admin login */
+
+
+// Code for redirect to home
+let imagelink = document.getElementById("abhay_homeLink")
+imagelink.addEventListener("click", ()=>{
+    window.location.href = "index.html"
+})
+// Code for redirect to home
