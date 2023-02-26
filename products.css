@@ -61,6 +61,7 @@ margin-bottom:20px;
 
 
 
+
 }
 #Sanketh-product-form>form>input{
  font-size: 15px;
@@ -135,6 +136,20 @@ margin-bottom:20px;
     border-radius:5px;
 }
 
+#Sanketh-product-filter{
+    border-radius: 4px;
+    
+    margin-right: 25px;
+    
+   }
+
+   #Sanketh_product-display-container>div:nth-child(1){
+  
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      
+   }
 
 
 

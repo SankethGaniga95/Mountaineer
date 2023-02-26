@@ -25,18 +25,18 @@
  <div class="Sanketh-orders">
   <a href="./customers.html">Customers</a>
  </div>
- <div class="Sanketh-orders">
+ <!-- <div class="Sanketh-orders">
   <a href="./analytics.html">Analytics</a>
- </div>
+ </div> -->
  <div class="Sanketh-orders">
-  <a href="">Logout</a>
+  <a href="./index.html">Logout</a>
  </div>
 </div>
 </div>
 <div id="Sanketh-order-page">
   <nav>
     <h3>Dashboard</h3>
-    <input type="text" placeholder="Search...">
+    <input type="text" id="inputorder" placeholder="Search...">
      <p>Admin</p>   
    <img src="./images/adminicon.png" alt="">
   </nav>
@@ -48,8 +48,12 @@
           <div id="Sanketh_order-display-container">
             <div>
               <h3>Orders Page</h3>
-              <select name="filter" id="Sanketh-product-filter">
-                <option value="">Filter</option>
+              <select name="filter" id="Sanketh-order-filter">
+                <option value="">Filter By Status</option>
+                <option value="">Order Confirmed</option>
+                <option value="">Order Shipped</option>
+                <option value="">Order Out for Delivery</option>
+                <option value="">Order Delivered</option>
               </select>
             </div>
             <!-- <div id="Sanketh-product-form">
