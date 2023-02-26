@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
+    
     <nav>
       <div id="abhay_nav_uppermost">
         <div>
@@ -44,21 +45,24 @@
             <img src="/Images/logoImage.png" alt="">
           </div>
             <div>
-              <input placeholder="Search..." class="abhay_SearchInput">
+              <input id="search" placeholder="Search..." class="abhay_SearchInput">
             </div>
             
-            <div>
+            <div  id="abhay_accounts">
               <div>
-                <p>
-                <i class="fa-regular fa-user"></i>
+                <p class="abhayPara">
+                <i class="fa-regular fa-user abhayPara"></i>
                    My Account & Orders
                  </p>
                 </div>
+                <div id="abhay_account_details">
+                  
+                </div>
             </div>
-            <div>
+            <div id="abhay_addToCart">
               <div>
-              <p>
-                <i class="fa-solid fa-cart-shopping"></i>
+              <p class="abhayPara">
+                <i class="fa-solid fa-cart-shopping abhayPara"></i>
                 Cart
               </p>
             </div>
@@ -71,45 +75,46 @@
       <div id="abhay_nav_bottom">
         <div>
 <div>
-  <p>MEN</p>
+  <p  class="abhayPara">MEN</p>
 </div>
 <div>
-  <p>WOMEN</p>
+  <p class="abhayPara">WOMEN</p>
 </div>
 <div>
-  <p>KIDS</p>
+  <p class="abhayPara">KIDS</p>
 </div>
 <div>
-  <p>FOOTWEAR</p>
+  <p class="abhayPara">FOOTWEAR</p>
 </div>
 <div>
-  <p>CAMP & HIKE</p>
+  <p class="abhayPara">CAMP & HIKE</p>
 </div>
 <div>
-  <p>CLIMB</p>
+  <p class="abhayPara">CLIMB</p>
 </div>
 <div>
-  <p>SNOW</p>
+  <p class="abhayPara">SNOW</p>
 </div>
 <div>
-  <p>CYCLE</p>
+  <p class="abhayPara">CYCLE</p>
 </div>
 <div>
-  <p>ACTIVITIES</p>
+  <p class="abhayPara">ACTIVITIES</p>
 </div>
 <div>
-  <p>BRANDS</p>
+  <p  class="abhayPara">BRANDS</p>
 </div>
 <div>
-  <p>SALES AND OUTLETS</p>
+  <p class="abhayPara">SALES AND OUTLETS</p>
 </div>
 </div>
       </div>
     </nav>
 
     <!-- NavBar -->
-
+    <button id="dark_mode">Night</button>
     <div id="abhay_upperImages">
+     
       <div>
         <a href="">
           <img src="https://media.graphassets.com/rJQbdMZ0TLOSPwj9RhVa?format=pjpg&amp;auto=webp&quotcanebils" alt="">
@@ -683,4 +688,5 @@ Find a Store
     <!-- Footer -->
     
 </body>
+<script src="index.js"></script>
 </html>
