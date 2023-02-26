@@ -65,6 +65,17 @@ function fetchAndRenderCart(){
         }
     }
 
+    else{
+        Emptycart();
+    }
+
+}
+
+
+function Emptycart(){
+    let MainCartSection=document.getElementById("Nitesh_Cart_items");
+   
+    MainCartSection.innerHTML=`<p>Your Shopping Cart is Empty !</p>`
 }
 
 
@@ -75,7 +86,7 @@ function RenderCartItem(data,amt){
     }).join("")
 
    
-    MainCartSection.innerHTML = Cards;
+    MainCartSection.innerHTML = `${Cards}`;
 
 
     Cart_Amount+=amt;
