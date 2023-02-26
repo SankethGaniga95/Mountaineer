@@ -238,7 +238,7 @@ HistoryItem.addEventListener("click",function(e){
 
     // Code for account info details
     let paragraphAC = document.getElementById("abhay_account_para");
-    let userInfo = JSON.parse(localStorage.getItem("logedinPerson"));
+    let userInfo = JSON.parse(localStorage.getItem("logedinPerson")) || [];
     
     if(userInfo.length !== 0) {
         let str = ` <i class="fa-regular fa-user abhayPara"></i>
