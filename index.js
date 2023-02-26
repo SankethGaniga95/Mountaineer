@@ -93,7 +93,7 @@ console.log("khali")
     div1.setAttribute("class", "loginOp")
     div1.innerText = "Sign in"
     div1.addEventListener("click", ()=>{
-        window.location.href = "login.html";
+        window.location = "login.html"
     })
     let div2 = document.createElement("button");
     div2.innerText = "Create Account"
