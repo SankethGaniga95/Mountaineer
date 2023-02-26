@@ -222,3 +222,23 @@ body {
     font-weight: bold;
     float: right;
 }
+
+#coupon_box{
+    width: 150px;
+    height: 20px;
+    padding: 5px;
+    border-color: whitesmoke;
+}
+
+#discount_reward{
+    margin-left: 10px;
+    border-color: whitesmoke;
+    color: green;
+    padding: 2px;
+    height: 25px;
+    width: 100px;
+}
+
+#Special_Code{
+    color: red;
+}
