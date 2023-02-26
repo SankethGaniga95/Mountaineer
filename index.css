@@ -19,6 +19,7 @@
 /*------------------------------NavUpperMostPortion-----*/
 nav{
     margin-bottom: 20px;
+    
 }
 #abhay_nav_uppermost {
     display: flex;
@@ -26,6 +27,7 @@ nav{
     width: 100%;
     height: 30px;
     background-color: #303e35;
+
 }
 
 .abhay_top_p {
@@ -114,14 +116,42 @@ nav{
     width: 17%;
     border: 1px solid black;
     background-color: white;
-    display: flex;
+    /* display: flex; */
     margin: auto;
     align-items: center;
     justify-content: center;
 /* padding-left: 5px; */
 position: relative;
 left: 20px;
+cursor: pointer;
+
  }
+
+ #abhay_nav_middle > div > div:nth-child(3) p {
+text-align: center;
+margin-top: 8px;
+ }
+ /*Added Account Details*/
+ #abhay_account_details {
+    width: 100%;
+ }
+ #abhay_account_details > div{
+ position: relative;
+z-index: 1;
+width: 80%;
+height: 100px;
+border: 1px solid black;
+background-color: white;
+margin-top: 10px;
+ }
+ .signinOp{
+    width: 90%;
+    height: 20px;
+    height: 10px;
+    background-color: black;
+ }
+  /*Added Account Details*/
+
  #abhay_nav_middle > div > div:nth-child(4) {
     width: 6%;
     border: 1px solid black;
@@ -130,8 +160,9 @@ left: 20px;
     margin: auto;
     align-items: center;
     justify-content: center;
-  
+  cursor: pointer;
  }
+
 #abhay_nav_middle > div > div >img {
     height: 100%;
 }
@@ -569,3 +600,25 @@ footer > div span{
 }
 
 /*-------------------Footer*/
+#dark_mode {
+    cursor: pointer;
+    border-radius: 20px;
+    position:fixed;
+   
+   
+    width: 60px;
+    height: 30px;
+    left: 10px;
+    top: 48px;
+background-color: white;
+}
+#dark_mode:hover {
+    color: white;
+background-color: black;
+transition: 0.2s;
+}
+#dark_mode:hover {
+    color: white;
+background-color: black;
+transition: 0.2s;
+}
