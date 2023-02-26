@@ -30,6 +30,7 @@ function fetchandRender(pageno){
     .then((data)=>{
         console.log(data);
         mainsection.innerHTML=renderData(data)
+        
 
 
 
@@ -40,7 +41,7 @@ function fetchandRender(pageno){
                 e.preventDefault()
                 let deleteID=e.target.id
                 console.log(deleteID)
-
+                alert("Product has been deleted!")
                 deleteItem(deleteID)
             })
         }
@@ -76,7 +77,7 @@ function renderData(data){
 
     }).join("")
     return `<div class="Sanketh-card-list">${cardlist}</div>`;
-     
+   
 }
 
 
@@ -164,8 +165,8 @@ function paginationData(){
 }
 
 updateButton.addEventListener("click",function(e){
-    console.log("click1")
     e.preventDefault()
+    alert("Product details has been updated!")
     let id=IdInputValue.value;
     let image=ImageInputValue.value;
     let name=NameInputValue.value;
@@ -184,7 +185,7 @@ function updateDetails(id,image,name,category,description,price){
         body:JSON.stringify({
             id:id,
             image:image,
-            name:name,
+            title:name,
             category:category,
             description:description,
             price:price
@@ -203,6 +204,7 @@ function updateDetails(id,image,name,category,description,price){
 
 addProductsButton.addEventListener("click",(e)=>{
     e.preventDefault()
+    alert("Product has been added!")
     let id=IdInputValue.value;
     let image=ImageInputValue.value;
     let name=NameInputValue.value;
@@ -218,9 +220,9 @@ function addProducts(id,image,name,category,Description,price){
 fetch(`https://63c63ce0d307b76967351ede.mockapi.io/product`,{
     method:"POST",
     body:JSON.stringify({
-        id:id,
+            id:id,
             image:image,
-            name:name,
+            title:name,
             category:category,
             Description:Description,
             price:price

@@ -3,22 +3,26 @@
    
     background-color: rgb(240, 240, 240); 
 
-    padding-top:70px;
+    padding-top:60px;
+    
 
 }
 
 #Sanketh_product-display-container{
     width:85%;
-    height:2000px;
+    height:1400px;
     /* border:2px solid grey; */
     background-color:white;
     margin:auto;
+    border-radius: 8px;
+    
     
 
 }
 #Sanketh_product-display-container>div>h3{
-    font-size:28px;
+    font-size:18px;
     padding: 20px 0px 0px 20px; ;
+    font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;;
     
    
 }
@@ -28,35 +32,65 @@ margin: 20px 0px 0px 20px;
 #Sanketh_product_data{
 justify-content:space-evenly;
 font-family:sans-serif;
-font-size:25px;
-border:2px solid black;
-width:100%;
+font-size:18px;
+border:1px solid black;
+width:99%;
 color:grey;
+margin-left:4px;
+
 }
 .card__img{
     height:100px;
-    width:100px
+    width:100px;
+    
 }
 hr{
-    width:4900%;
+    width:4370%;
     background-color:grey;
     height:1px
 }
 #Sanketh-product-form{
 
-font-size: 25px;
+font-size: 20px;
 height:100px;
-margin-bottom:50px;
+margin-bottom:20px;
+/* display:flex; */
+
+
+
+
+
 
 }
 #Sanketh-product-form>form>input{
- font-size: 19px;
+ font-size: 15px;
+ margin-left:6px;
+ width:142px;
+ height:20px
+
 
 }
-#Sanketh-product-form>form>button{
-    font-size: 19px;
-    margin-left:1338px;
+#Sanketh-product-form>p{
+    text-align: center;
+    font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;
+    color:rgba(49,63,53,255) ;
+    font-weight: bold;
+    margin-top:0px
+}
+#Sanketh-product-form>form>div>button{
+    font-size: 15px;
+    background-color:rgba(49,63,53,255);
+    color:white;
+    padding:6px 10px 6px 10px;
+    border-radius:4px;
+    border:none;
+    margin-top:10px;
+    margin-left:30px
    
+   }
+   #Sanketh-product-form>form>div{
+    margin:auto;
+    width:270px
    }
 
    #Sanketh-pagination-part{
@@ -64,27 +98,46 @@ margin-bottom:50px;
     height:100px;
     
     margin:auto;
-    margin-top:40px;
+    margin-top:20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 16px;
+   
    }
 .Sanketh-pagination-buttons{
-    width:140px;
-    height:60px;
+    width:90px;
+    height:40px;
     background-color:rgba(49,63,53,255);
     color:white;
     border:none;
     margin-left:10px;
     border-radius:5px;
-    font-size:20px
+    font-size:18px
 }
 
 .Sanketh-edit-link{
-    background-color:green;
+    background-color:rgba(49,63,53,255);
     color:white;
+    font-size: 12px;
+    border:none;
+    padding:6px 10px;
+    border-radius:5px;
+    
 }
+.Sanketh-delete-link{
+    background-color:red;
+    color:white;
+    font-size: 12px;
+    border:none;
+    padding:6px 8px;
+    border-radius:5px;
+}
+
+
+
+
+
 
 
