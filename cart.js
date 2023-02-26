@@ -234,3 +234,81 @@ HistoryItem.addEventListener("click",function(e){
 })
 
 
+    // Added by Abhay
+
+    // Code for account info details
+    let paragraphAC = document.getElementById("abhay_account_para");
+    let userInfo = JSON.parse(localStorage.getItem("logedinPerson"));
+    
+    if(userInfo.length !== 0) {
+        let str = ` <i class="fa-regular fa-user abhayPara"></i>
+        ${userInfo[0].ufname}`
+        paragraphAC.innerHTML = str
+     
+    }else {
+        let str = ` <i class="fa-regular fa-user abhayPara"></i>
+        My Account & Orders`
+        paragraphAC.innerHTML = str
+    }
+    // Code for account info details
+    
+    
+    // Code for hover button creation
+    
+    let signinOuter = document.getElementById("abhay_accounts")
+    let singin = document.getElementById("abhay_account_details")
+    signinOuter.addEventListener("mouseenter", ()=>{
+        console.log("hi")
+        let userInfo = JSON.parse(localStorage.getItem("logedinPerson")) || []
+        console.log(userInfo)
+        let divO = document.createElement("div");
+        if(userInfo.length !== 0) {
+            console.log("bhari")
+            let div1 = document.createElement("button");
+            div1.setAttribute("class", "loginOp")
+            div1.innerText = "Log out"
+            div1.addEventListener("click", ()=>{
+                userInfo = [];
+                localStorage.setItem("logedinPerson", JSON.stringify(userInfo))
+                window.location.href = "/index.html";
+            })
+            
+            divO.append(div1)
+            singin.append(divO)
+        }else {
+    console.log("khali")
+        
+        let div1 = document.createElement("button");
+        div1.setAttribute("class", "loginOp")
+        div1.innerText = "Sign in"
+        div1.addEventListener("click", ()=>{
+            window.location.href = "login.html";
+        })
+        let div2 = document.createElement("button");
+        div2.innerText = "Create Account"
+        div2.setAttribute("class", "signupOp")
+        div2.addEventListener("click", ()=>{
+            window.location.href = "signup.html";
+        })
+    
+        divO.append(div1, div2)
+       singin.append(divO)
+    }
+    })
+    signinOuter.addEventListener("mouseleave", ()=>{
+        singin.innerText = ""
+    })
+    // Code for hover button creation
+    
+    // Code for redirect to home
+
+    
+    let imagelink = document.getElementById("abhay_homeLink")
+    imagelink.addEventListener("click", ()=>{
+        window.location.href = "index.html";
+        
+    })
+    // Code for redirect to home
+    
+    
+    //added by Abhay

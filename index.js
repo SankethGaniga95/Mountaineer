@@ -1,3 +1,23 @@
+// Code for account info details
+let paragraphAC = document.getElementById("abhay_account_para");
+let userInfo = JSON.parse(localStorage.getItem("logedinPerson"));
+
+if(userInfo.length !== 0) {
+    let str = ` <i class="fa-regular fa-user abhayPara"></i>
+    ${userInfo[0].ufname}`
+    paragraphAC.innerHTML = str
+ 
+}else {
+    let str = ` <i class="fa-regular fa-user abhayPara"></i>
+    My Account & Orders`
+    paragraphAC.innerHTML = str
+}
+// Code for account info details
+
+
+
+// Code for Dark Mode
+
 let topN = document.getElementById("abhay_nav_uppermost")
 let midN = document.getElementById("abhay_nav_middle")
 let botN = document.getElementById("abhay_nav_bottom")
@@ -40,17 +60,64 @@ butD.addEventListener("click", ()=>{
         butD.innerText = "Night"
     }
 })
+// Code for Dark Mode
+
+
+// Code for hover button creation
+
 let signinOuter = document.getElementById("abhay_accounts")
 let singin = document.getElementById("abhay_account_details")
 signinOuter.addEventListener("mouseenter", ()=>{
+    let userInfo = JSON.parse(localStorage.getItem("logedinPerson")) || []
+    console.log(userInfo)
     let divO = document.createElement("div");
-    let div1 = document.createElement("div");
+    if(userInfo.length !== 0) {
+        console.log("bhari")
+        let div1 = document.createElement("button");
+        div1.setAttribute("class", "loginOp")
+        div1.innerText = "Log out"
+        div1.addEventListener("click", ()=>{
+            userInfo = [];
+            localStorage.setItem("logedinPerson", JSON.stringify(userInfo))
+            window.location.href = "/index.html";
+        })
+        if(butD.innerText === "Day") {
+            divO.style.backgroundColor = "#1b1a1a"
+        }
+        divO.append(div1)
+        singin.append(divO)
+    }else {
+console.log("khali")
+    
+    let div1 = document.createElement("button");
     div1.setAttribute("class", "loginOp")
-    let div2 = document.createElement("div");
-    div2.setAttribute("class", "signinOp")
-
+    div1.innerText = "Sign in"
+    div1.addEventListener("click", ()=>{
+        window.location.href = "login.html";
+    })
+    let div2 = document.createElement("button");
+    div2.innerText = "Create Account"
+    div2.setAttribute("class", "signupOp")
+    div2.addEventListener("click", ()=>{
+        window.location.href = "signup.html";
+    })
+if(butD.innerText === "Day") {
+    divO.style.backgroundColor = "#1b1a1a"
+}
+    divO.append(div1, div2)
    singin.append(divO)
+}
 })
 signinOuter.addEventListener("mouseleave", ()=>{
     singin.innerText = ""
 })
+// Code for hover button creation
+
+// Code for redirect to home
+let imagelink = document.getElementById("abhay_homeLink")
+imagelink.addEventListener("click", ()=>{
+    window.location.href = "index.html"
+})
+// Code for redirect to home
+
+
