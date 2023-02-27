@@ -53,7 +53,7 @@ How to Run this project :
   
   Tech Stack
   
-  Client: HTML , CSS , JavaScript
+      Client: HTML , CSS , JavaScript
 
-  Server: Local Storage
+      Server: Local Storage
 
