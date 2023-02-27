@@ -48,8 +48,8 @@ How to Run this project :
   Deployment
   
   To Run this Project Use link
-  
-  https://timely-river8283.netlify.app/
+
+      https://timely-river8283.netlify.app/
   
   Tech Stack
   
